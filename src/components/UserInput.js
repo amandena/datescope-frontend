@@ -1,4 +1,6 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {addUser} from '../actions/addUser'
 
 class UserInput extends React.Component {
   state = {
@@ -20,10 +22,27 @@ class UserInput extends React.Component {
     })
   }
 
+  handleSubmit = event => {
+    event.preventDefault()
+    this.props.addUser(this.state)
+    this.setState({
+      email: '',
+      password: '',
+      name: '',
+      age: '',
+      sign: '',
+      bio: '',
+      gender: '',
+      preference: '',
+      location: '',
+      instagram: ''
+    })
+  }
+
   render() {
     return(
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <label>Email: </label>
           <input type='text' placeholder='Email' value={this.state.email} name='email' onChange={this.handleChange} /><br/>
           <label>Password: </label>
@@ -51,4 +70,4 @@ class UserInput extends React.Component {
   }
 }
 
-export default UserInput
+export default connect(null, {addUser})(UserInput)

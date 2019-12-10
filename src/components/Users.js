@@ -4,9 +4,9 @@ const Users = props => {
 
   return(
     <div>
-      {props.users.map(user =>
+      {props.users.map(user => 
         <li key={user.id}>
-          <h2>{user.name} - {user.age} - {user.sign} - {user.instagram}</h2>
+          <h2>{user.name} - {user.age} - {user.sign}</h2>
           <p>{user.bio}</p>
         </li>
       )}
