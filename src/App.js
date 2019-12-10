@@ -1,6 +1,12 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {fetchUsers} from './actions/fetchUsers'
 
 class App extends React.Component {
+
+  componentDidMount() {
+    this.props.fetchUsers({type: 'FETCH_USERS', payload: {sign: 'leo'}})
+  }
 
   render() {
     return(
@@ -11,4 +17,4 @@ class App extends React.Component {
   }
 }
 
-export default App
+export default connect(null, {fetchUsers})(App)
