@@ -4,7 +4,12 @@ const Users = props => {
 
   return(
     <div>
-      Users
+      {props.users.map(user =>
+        <li key={user.id}>
+          <h2>{user.name} - {user.age} - {user.sign} - {user.instagram}</h2>
+          <p>{user.bio}</p>
+        </li>
+      )}
     </div>
   )
 }
