@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import Login from '../components/Login'
 import UserInput from '../components/UserInput'
 import Users from '../components/Users'
 import {fetchUsers} from '../actions/fetchUsers'
@@ -13,6 +14,7 @@ class UsersContainer extends React.Component {
   render() {
     return(
       <div>
+        <Login />
         <UserInput /><br/>
         <Users users={this.props.users} />
       </div>
