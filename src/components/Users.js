@@ -1,7 +1,4 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import Messages from './Messages'
-import {fetchMessages} from '../actions/fetchMessages'
 
 const Users = props => {
 
@@ -13,9 +10,8 @@ const Users = props => {
           <p>{user.bio}</p>
         </li>
       )}
-      <Messages messages={this.props.messages} />
     </div>
   )
 }
 
-export default connect(null, {fetchMessages})(Users)
+export default Users

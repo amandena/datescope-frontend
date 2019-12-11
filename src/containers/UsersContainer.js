@@ -4,11 +4,15 @@ import Login from '../components/Login'
 import UserInput from '../components/UserInput'
 import Users from '../components/Users'
 import {fetchUsers} from '../actions/fetchUsers'
+import MessageInput from '../components/MessageInput'
+import Messages from '../components/Messages'
+import {fetchMessages} from '../actions/fetchMessages'
 
 
 class UsersContainer extends React.Component {
   componentDidMount() {
     this.props.fetchUsers()
+    this.props.fetchMessages()
   }
 
   render() {
@@ -17,6 +21,7 @@ class UsersContainer extends React.Component {
         <Login /><br/>
         <UserInput /><br/>
         <Users users={this.props.users} />
+        <Messages messages={this.props.messages} />
       </div>
     )
   }
@@ -24,8 +29,14 @@ class UsersContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    users: state.users
+    users: state.users,
+    messages: state.messages
   }
 }
 
-export default connect(mapStateToProps, {fetchUsers})(UsersContainer)
+const mapDispatchToProps = {
+  fetchUsers,
+  fetchMessages
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer)
