@@ -27,7 +27,7 @@ class Login extends React.Component {
   render() {
     return(
       <div>
-        Welcome Back!
+        <h2>Welcome Back!</h2>
         <form onSubmit={this.handleSubmit}>
           <label>Email: </label>
           <input type='text' placeholder='Email' name='email' value={this.state.email} onChange={this.handleChange} /><br/>
