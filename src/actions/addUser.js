@@ -9,6 +9,12 @@ export const addUser = state => {
       body: JSON.stringify(state)
     })
       .then(res => res.json())
-      .then(user => dispatch({type: 'ADD_USER', payload: user}))
+      .then(user => {
+        if (user.error) {
+          alert(user.error)
+        } else {
+          dispatch({type: 'ADD_USER', payload: user})
+        }
+      })
   }
 }
