@@ -1,5 +1,7 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import Messages from './Messages'
+import {fetchMessages} from '../actions/fetchMessages'
 
 const Users = props => {
 
@@ -16,4 +18,4 @@ const Users = props => {
   )
 }
 
-export default Users
+export default connect(null, {fetchMessages})(Users)
