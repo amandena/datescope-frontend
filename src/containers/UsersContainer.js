@@ -12,7 +12,7 @@ import {fetchMessages} from '../actions/fetchMessages'
 class UsersContainer extends React.Component {
   componentDidMount() {
     this.props.fetchUsers()
-    // this.props.fetchMessages()
+    this.props.fetchMessages()
   }
 
   render() {

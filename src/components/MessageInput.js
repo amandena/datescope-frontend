@@ -1,5 +1,6 @@
 import React from 'react'
-
+import {connect} from 'react-redux'
+import {addMessage} from '../actions/addMessage'
 
 class MessageInput extends React.Component {
   state = {
@@ -18,7 +19,7 @@ class MessageInput extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    
+    this.props.addMessage(this.state)
     this.setState({
       messages: {
         comment: ''
@@ -39,4 +40,4 @@ class MessageInput extends React.Component {
   }
 }
 
-export default MessageInput
+export default connect(null, {addMessage})(MessageInput)
