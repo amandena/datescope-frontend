@@ -1,5 +1,5 @@
 import React from 'react'
-import User from './User'
+import {Link} from 'react-router-dom'
 
 const Users = props => {
 
@@ -7,7 +7,7 @@ const Users = props => {
     <div>
       {props.users.map(user =>
         <div key={user.id}>
-          <User user={user} />
+          <Link to={`/users/${user.id}`}>{user.name}</Link>
         </div>
       )}
     </div>

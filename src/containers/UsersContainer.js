@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Route} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import Login from '../components/Login'
 import UserInput from '../components/UserInput'
 import Users from '../components/Users'
@@ -15,10 +15,12 @@ class UsersContainer extends React.Component {
   render() {
     return(
       <div>
-        <Route path='/login' component={Login} />
-        <Route path='/users/new' component={UserInput} />
-        <Route path='/users/:id' render={(routerProps) => <User {...routerProps} users={this.props.users} />} />
-        <Route exact path='/users' render={() => <Users users={this.props.users} />} />
+        <Switch>
+          <Route path='/login' component={Login} />
+          <Route path='/users/new' component={UserInput} />
+          <Route path='/users/:id' render={(routerProps) => <User {...routerProps} users={this.props.users} />} />
+          <Route path='/users' render={() => <Users users={this.props.users} />} />
+        </Switch>
       </div>
     )
   }
