@@ -5,7 +5,6 @@ const Messages = props => {
   return(
     <div>
       Messages
-
     </div>
   )
 }

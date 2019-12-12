@@ -1,8 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 // import {Route} from 'react-router-dom'
-// import MessageInput from '../components/MessageInput'
-// import Messages from '../components/Messages'
+import MessageInput from '../components/MessageInput'
+import Messages from '../components/Messages'
 import {fetchMessages} from '../actions/fetchMessages'
 
 class MessagesContainer extends React.Component {
@@ -13,8 +13,8 @@ class MessagesContainer extends React.Component {
   render() {
     return(
       <div>
-        MessagesContainer
-
+        <MessageInput />
+        <Messages />
       </div>
     )
   }
