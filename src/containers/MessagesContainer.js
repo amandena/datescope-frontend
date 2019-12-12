@@ -14,7 +14,7 @@ class MessagesContainer extends React.Component {
     return(
       <div>
         <MessageInput />
-        <Messages />
+        <Messages messages={this.props.user && this.props.user.messages} />
       </div>
     )
   }
