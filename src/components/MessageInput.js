@@ -33,7 +33,7 @@ class MessageInput extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <label>Message: </label>
           <input type='text' placeholder='Message' value={this.state.messages.comment} name='comment' onChange={this.handleChange} />
-          <input type='submit' />
+          <input type='submit' value='Send' />
         </form>
       </div>
     )
