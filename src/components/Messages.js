@@ -4,11 +4,9 @@ const Messages = props => {
 
   return(
     <div>
-      Messages
+      {props.messages && props.messages.map(message => <p key={message.id}>{message.comment}</p>)}
     </div>
   )
 }
 
 export default Messages
-
-// {props.messages.map(message => <li key={message.id}>{message.comment}</li>)}
