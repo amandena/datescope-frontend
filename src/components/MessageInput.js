@@ -19,7 +19,7 @@ class MessageInput extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    this.props.addMessage(this.state)
+    this.props.addMessage(this.state, this.props.user.id)
     this.setState({
       messages: {
         comment: ''

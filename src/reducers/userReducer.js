@@ -6,6 +6,8 @@ export default function userReducer(state = {users: []}, action) {
       return {...state, users: [...state.users, action.payload]}
     case 'LOGIN_USER':
       return {...state, currentUser: action.payload}
+    case 'ADD_MESSAGE':
+        return {}
     default:
       return state
   }
