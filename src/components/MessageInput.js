@@ -4,16 +4,12 @@ import {addMessage} from '../actions/addMessage'
 
 class MessageInput extends React.Component {
   state = {
-    messages: {
-      comment: ''
-    }
+    comment: ''
   }
 
   handleChange = event => {
     this.setState({
-      messages: {
-        [event.target.name]: event.target.value
-      }
+      [event.target.name]: event.target.value
     })
   }
 
@@ -21,9 +17,7 @@ class MessageInput extends React.Component {
     event.preventDefault()
     this.props.addMessage(this.state, this.props.user.id)
     this.setState({
-      messages: {
-        comment: ''
-      }
+      comment: ''
     })
   }
 
@@ -32,7 +26,7 @@ class MessageInput extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <label>Message: </label>
-          <input type='text' placeholder='Message' value={this.state.messages.comment} name='comment' onChange={this.handleChange} />
+          <input type='text' placeholder='Message' value={this.state.comment} name='comment' onChange={this.handleChange} />
           <input type='submit' value='Send' />
         </form>
       </div>

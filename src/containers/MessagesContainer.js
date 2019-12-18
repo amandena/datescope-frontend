@@ -4,9 +4,6 @@ import MessageInput from '../components/MessageInput'
 import Messages from '../components/Messages'
 
 class MessagesContainer extends React.Component {
-  // componentDidMount() {
-  //   this.props.fetchMessages()
-  // }
 
   render() {
     return(

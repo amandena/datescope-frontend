@@ -7,7 +7,14 @@ export default function userReducer(state = {users: []}, action) {
     case 'LOGIN_USER':
       return {...state, currentUser: action.payload}
     case 'ADD_MESSAGE':
-        return {}
+      let users = state.users.map(user => {
+        if (user.id === action.payload.id) {
+          return action.payload
+        } else {
+          return user
+        }
+      })
+        return {...state, users: users}
     default:
       return state
   }
