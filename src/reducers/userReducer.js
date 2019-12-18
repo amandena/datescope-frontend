@@ -15,6 +15,15 @@ export default function userReducer(state = {users: []}, action) {
         }
       })
         return {...state, users: users}
+      case 'DELETE_MESSAGE':
+      let usersD = state.users.map(user => {
+        if (user.id === action.payload.id) {
+          return action.payload
+        } else {
+          return user
+        }
+      })
+        return {...state, users: usersD}
     default:
       return state
   }
