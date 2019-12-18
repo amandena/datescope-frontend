@@ -5,6 +5,7 @@ import Login from '../components/Login'
 import UserInput from '../components/UserInput'
 import Users from '../components/Users'
 import User from '../components/User'
+import UserEdit from '../components/UserEdit'
 import {fetchUsers} from '../actions/fetchUsers'
 
 class UsersContainer extends React.Component {
@@ -17,6 +18,7 @@ class UsersContainer extends React.Component {
       <div>
         <Switch>
           <Route path='/login' component={Login} />
+          <Route path='/users/:id/edit' render={(routerProps) => <UserEdit {...routerProps} user={this.props.user} />} />
           <Route path='/users/new' component={UserInput} />
           <Route path='/users/:id' render={(routerProps) => <User {...routerProps} users={this.props.users} />} />
           <Route path='/users' render={() => <Users users={this.props.users} />} />

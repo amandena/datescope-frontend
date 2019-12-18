@@ -1,6 +1,6 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import MessagesContainer from '../containers/MessagesContainer'
-import UserEdit from './UserEdit'
 
 const User = props => {
 
@@ -10,8 +10,8 @@ const User = props => {
     <div>
       <h2>{user ? user.name : null} - {user ? user.age : null} - {user ? user.sign : null}</h2>
       <p>{user ? user.bio : null}</p>
+      <Link to={`/users/${user && user.id}/edit`}>Edit Profile</Link>
       <MessagesContainer user={user} />
-      <UserEdit user={user} />
     </div>
   )
 }
