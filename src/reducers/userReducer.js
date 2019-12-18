@@ -24,6 +24,15 @@ export default function userReducer(state = {users: []}, action) {
         }
       })
         return {...state, users: usersD}
+      case 'EDIT_USER':
+      let usersE = state.users.map(user => {
+        if (user.id === action.payload.id) {
+          return action.payload
+        } else {
+          return user
+        }
+      })
+        return {...state, users: usersE}
     default:
       return state
   }

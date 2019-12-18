@@ -1,20 +1,19 @@
-export const addUser = data => {
+export const editUser = data => {
   return (dispatch) => {
-    fetch('http://localhost:3000/api/v1/users', {
+    fetch(`http://localhost:3000/api/v1/users/${data.id}`, {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      method: 'POST',
+      method: 'PATCH',
       body: JSON.stringify(data)
     })
       .then(res => res.json())
       .then(user => {
-        debugger
         if (user.error) {
           alert(user.error)
         } else {
-          dispatch({type: 'ADD_USER', payload: user})
+          dispatch({type: 'EDIT_USER', payload: user})
         }
       })
   }
