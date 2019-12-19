@@ -10,7 +10,6 @@ export const addUser = data => {
     })
       .then(res => res.json())
       .then(user => {
-        debugger
         if (user.error) {
           alert(user.error)
         } else {
