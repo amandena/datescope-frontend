@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+
 import {loginUser} from '../actions/loginUser'
 
 class Login extends React.Component {
@@ -36,7 +36,7 @@ class Login extends React.Component {
           <input type='password' placeholder='Password' name='password' value={this.state.password} onChange={this.handleChange} /><br/>
           <input type='submit' value='Login' />
         </form>
-        <p>New to Datescope? Create account <Link to='/users/new'>here</Link>.</p>
+
       </div>
     )
   }
