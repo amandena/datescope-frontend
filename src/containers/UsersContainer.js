@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Route, Switch} from 'react-router-dom'
+import NavBarContainer from './NavBarContainer'
 import Login from '../components/Login'
 import UserInput from '../components/UserInput'
 import Users from '../components/Users'
@@ -16,6 +17,7 @@ class UsersContainer extends React.Component {
   render() {
     return(
       <div>
+        <NavBarContainer />
         <Switch>
           <Route path='/login' component={Login} />
           <Route path='/users/:id/edit' render={(routerProps) => <UserEdit {...routerProps} user={this.props.user} />} />
