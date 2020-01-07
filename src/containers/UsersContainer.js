@@ -10,8 +10,29 @@ import UserEdit from '../components/UserEdit'
 import {fetchUsers} from '../actions/fetchUsers'
 
 class UsersContainer extends React.Component {
+  state = {
+    currentUser: null,
+    loginForm: {
+      email: '',
+      password: ''
+    }
+  }
+
   componentDidMount() {
     this.props.fetchUsers()
+  }
+
+  handleLoginChange = event => {
+    this.setState({
+      loginForm: {
+        ...this.state.loginForm,
+        [event.target.name]: event.target.value
+      }
+    })
+  }
+
+  handleLoginSubmit = event => {
+
   }
 
   render() {
@@ -19,7 +40,7 @@ class UsersContainer extends React.Component {
       <div>
         <NavBarContainer />
         <Switch>
-          <Route path='/login' component={Login} />
+          <Route path='/login' render={() => <Login handleLoginChange={this.handleLoginChange} handleLoginSubmit={this.handleLoginSubmit} email={this.state.loginForm.email} password={this.state.loginForm.password} />} />
           <Route path='/users/:id/edit' render={(routerProps) => <UserEdit {...routerProps} user={this.props.user} />} />
           <Route path='/users/new' component={UserInput} />
           <Route path='/users/:id' render={(routerProps) => <User {...routerProps} users={this.props.users} />} />
