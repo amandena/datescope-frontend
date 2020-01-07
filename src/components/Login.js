@@ -1,18 +1,7 @@
 import React from 'react'
-import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {loginUser} from '../actions/loginUser'
 
 const Login = ({ handleLoginChange, handleLoginSubmit, email, password }) => {
-
-  // handleSubmit = event => {
-  //   event.preventDefault()
-  //   this.props.loginUser(this.state)
-  //   this.setState({
-  //     email: '',
-  //     password: ''
-  //   })
-  // }
 
   return(
     <div>
@@ -29,4 +18,4 @@ const Login = ({ handleLoginChange, handleLoginSubmit, email, password }) => {
   )
 }
 
-export default connect(null, {loginUser})(Login)
+export default Login

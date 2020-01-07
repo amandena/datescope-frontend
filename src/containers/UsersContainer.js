@@ -8,6 +8,7 @@ import Users from '../components/Users'
 import User from '../components/User'
 import UserEdit from '../components/UserEdit'
 import {fetchUsers} from '../actions/fetchUsers'
+import {loginUser} from '../actions/loginUser'
 
 class UsersContainer extends React.Component {
   state = {
@@ -32,7 +33,14 @@ class UsersContainer extends React.Component {
   }
 
   handleLoginSubmit = event => {
-
+    event.preventDefault()
+    this.props.loginUser(this.state)
+    this.setState({
+      loginForm: {
+        email: '',
+        password: ''
+      }
+    })
   }
 
   render() {
@@ -57,4 +65,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {fetchUsers})(UsersContainer)
+export default connect(mapStateToProps, {fetchUsers, loginUser})(UsersContainer)
