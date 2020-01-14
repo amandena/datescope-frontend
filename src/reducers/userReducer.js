@@ -1,4 +1,9 @@
-export default function userReducer(state = {users: [], currentUser: null}, action) {
+const initialUser = {
+  email: '',
+  password: ''
+}
+
+export default function userReducer(state = {users: [], currentUser: initialUser}, action) {
   switch (action.type) {
     case 'FETCH_USERS':
       return {users: action.payload}
