@@ -1,4 +1,5 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 
 const Login = ({ handleLoginChange, handleLoginSubmit, email, password }) => {
@@ -18,4 +19,11 @@ const Login = ({ handleLoginChange, handleLoginSubmit, email, password }) => {
   )
 }
 
-export default Login
+const mapStateToProps = state => {
+  return {
+    email: state.email,
+    password: state.password
+  }
+}
+
+export default connect(mapStateToProps)(Login)

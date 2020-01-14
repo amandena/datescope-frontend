@@ -6,7 +6,7 @@ export default function userReducer(state = {users: [], currentUser: null}, acti
     case 'ADD_USER':
       return {...state, users: [...state.users, action.payload]}
 
-    case 'CURRENT_USER':
+    case 'SET_CURRENT_USER':
       return action.user
 
     case 'LOGIN_USER':
