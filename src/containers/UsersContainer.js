@@ -8,39 +8,10 @@ import Users from '../components/Users'
 import User from '../components/User'
 import UserEdit from '../components/UserEdit'
 import {fetchUsers} from '../actions/fetchUsers'
-import {loginUser} from '../actions/loginUser'
 
 class UsersContainer extends React.Component {
-  state = {
-    currentUser: null,
-    loginForm: {
-      email: '',
-      password: ''
-    }
-  }
-
   componentDidMount() {
     this.props.fetchUsers()
-  }
-
-  handleLoginChange = event => {
-    this.setState({
-      loginForm: {
-        ...this.state.loginForm,
-        [event.target.name]: event.target.value
-      }
-    })
-  }
-
-  handleLoginSubmit = event => {
-    event.preventDefault()
-    this.props.loginUser(this.state)
-    this.setState({
-      loginForm: {
-        email: '',
-        password: ''
-      }
-    })
   }
 
   render() {
@@ -48,7 +19,7 @@ class UsersContainer extends React.Component {
       <div>
         <NavBarContainer />
         <Switch>
-          <Route path='/login' render={() => <Login handleLoginChange={this.handleLoginChange} handleLoginSubmit={this.handleLoginSubmit} email={this.state.loginForm.email} password={this.state.loginForm.password} />} />
+          <Route path='/login' component={Login} />
           <Route path='/users/:id/edit' render={(routerProps) => <UserEdit {...routerProps} user={this.props.user} />} />
           <Route path='/users/new' component={UserInput} />
           <Route path='/users/:id' render={(routerProps) => <User {...routerProps} users={this.props.users} />} />
@@ -65,4 +36,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {fetchUsers, loginUser})(UsersContainer)
+export default connect(mapStateToProps, {fetchUsers})(UsersContainer)
