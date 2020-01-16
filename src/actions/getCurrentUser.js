@@ -1,14 +1,11 @@
-export const loginUser = state => {
-  console.log(state)
+export const getCurrentUser = () => {
   return (dispatch) => {
-    fetch('http://localhost:3000/api/v1/login', {
+    fetch('http://localhost:3000/api/v1/get_current_user', {
       credentials: 'include',
+      method: 'GET',
       headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      method: 'POST',
-      body: JSON.stringify({user: state})
+        'Content-Type': 'application/json'
+      }
     })
       .then(res => res.json())
       .then(user => {
