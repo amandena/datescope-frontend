@@ -1,5 +1,4 @@
-export const loginUser = state => {
-  console.log(state)
+export const loginUser = credentials => {
   return (dispatch) => {
     fetch('http://localhost:3000/api/v1/login', {
       credentials: 'include',
@@ -8,7 +7,7 @@ export const loginUser = state => {
         'Accept': 'application/json'
       },
       method: 'POST',
-      body: JSON.stringify({user: state})
+      body: JSON.stringify({user: credentials})
     })
       .then(res => res.json())
       .then(user => {
