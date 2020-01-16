@@ -1,26 +1,19 @@
 import React from 'react'
-// import {connect} from 'react-redux'
+import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import {updateLoginForm} from '../actions/updateLoginForm'
 // import {loginUser} from '../actions/loginUser'
 
-const Login = () => {
-  // state = {
-  //   currentUser: null,
-  //   loginForm: {
-  //     email: '',
-  //     password: ''
-  //   }
-  // }
-  //
-  // handleChange = event => {
-  //   this.setState({
-  //     loginForm: {
-  //       ...this.state.loginForm,
-  //       [event.target.name]: event.target.value
-  //     }
-  //   })
-  // }
-  //
+const Login = ({loginForm, updateLoginForm}) => {
+  const handleChange = event => {
+    const {name, value} = event.target
+    const updatedFormInfo = {
+      ...loginForm,
+      [name]: value
+    }
+    updateLoginForm(updatedFormInfo)
+  }
+
   // handleSubmit = event => {
   //   event.preventDefault()
   //   this.props.loginUser(this.state)
@@ -37,16 +30,19 @@ const Login = () => {
     <div>
       <h2>Welcome Back!</h2>
       <form >
-        <label>Email: </label>
-        <input type='text' placeholder='Email' name='email' /><br/>
-        <label>Password: </label>
-        <input type='password' placeholder='Password' name='password' /><br/>
+        <input type='text' placeholder='Email' name='email' value={loginForm.email} onChange={handleChange} /><br/>
+        <input type='password' placeholder='Password' name='password' value={loginForm.password} onChange={handleChange} /><br/>
         <input type='submit' value='Login' />
       </form>
       <p>New to Datescope? Create account <Link to='/users/new'>here</Link>.</p>
     </div>
   )
-
 }
 
-export default Login
+const mapStateToProps = state => {
+  return {
+    loginForm: state.loginForm
+  }
+}
+
+export default connect(mapStateToProps, {updateLoginForm})(Login)
