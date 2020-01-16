@@ -1,4 +1,5 @@
 export const loginUser = credentials => {
+  console.log('credentials are', credentials)
   return (dispatch) => {
     fetch('http://localhost:3000/api/v1/login', {
       credentials: 'include',
