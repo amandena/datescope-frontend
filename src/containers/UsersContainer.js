@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {Route, Switch} from 'react-router-dom'
 import NavBarContainer from './NavBarContainer'
 import Login from '../components/Login'
+import Logout from '../components/Logout'
 import UserInput from '../components/UserInput'
 import Users from '../components/Users'
 import User from '../components/User'
@@ -22,6 +23,7 @@ class UsersContainer extends React.Component {
         <NavBarContainer />
         <Switch>
           <Route path='/login' component={Login} />
+          <Route path='/logout' component={Logout} />
           <Route path='/users/:id/edit' render={(routerProps) => <UserEdit {...routerProps} user={this.props.user} />} />
           <Route path='/users/new' component={UserInput} />
           <Route path='/users/:id' render={(routerProps) => <User {...routerProps} users={this.props.users} />} />
@@ -34,7 +36,8 @@ class UsersContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    users: state.users
+    users: state.users,
+    currentUser: state.currentUser
   }
 }
 

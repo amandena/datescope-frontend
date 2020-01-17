@@ -8,7 +8,7 @@ class NavBarContainer extends React.Component {
       <div className='navbar'>
         <Link to='/'>Datescope</Link>
         <Link to='/users'>Profiles</Link>
-        <Link to='/logout'>Logout</Link>
+        {this.props.currentUser ? <Link to='/logout'>Logout</Link> : <Link to='/login'>Login</Link>}
       </div>
     )
   }
