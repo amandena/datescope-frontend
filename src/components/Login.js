@@ -22,7 +22,6 @@ const Login = ({loginFormData, updateLoginForm, loginUser}) => {
 
   return(
     <div>
-      <h2>Welcome Back!</h2>
       <form onSubmit={handleSubmit}>
         <input type='text' placeholder='Email' name='email' value={loginFormData.email} onChange={handleChange} /><br/>
         <input type='password' placeholder='Password' name='password' value={loginFormData.password} onChange={handleChange} /><br/>

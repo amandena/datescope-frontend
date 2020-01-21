@@ -15,6 +15,5 @@ export const getCurrentUser = () => {
           dispatch({type: 'SET_CURRENT_USER', user: user})
         }
       })
-      .catch(console.log)
   }
 }

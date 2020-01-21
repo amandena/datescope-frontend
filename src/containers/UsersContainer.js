@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Route, Switch} from 'react-router-dom'
-import NavBarContainer from './NavBarContainer'
 import Login from '../components/Login'
 import Logout from '../components/Logout'
 import UserInput from '../components/UserInput'
@@ -20,7 +19,6 @@ class UsersContainer extends React.Component {
   render() {
     return(
       <div>
-        <NavBarContainer />
         <Switch>
           <Route path='/login' component={Login} />
           <Route path='/logout' component={Logout} />
@@ -36,8 +34,7 @@ class UsersContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    users: state.users,
-    currentUser: state.currentUser
+    users: state.users
   }
 }
 
