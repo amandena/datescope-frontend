@@ -16,6 +16,7 @@ export const loginUser = credentials => {
           alert(user.error)
         } else {
           dispatch({type: 'SET_CURRENT_USER', user: user})
+          dispatch({type: 'RESET_LOGIN_FORM'})
         }
       })
       .catch(console.log)
