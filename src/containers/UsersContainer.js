@@ -1,8 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Route, Switch} from 'react-router-dom'
-import Login from '../components/Login'
-import Logout from '../components/Logout'
 import UserInput from '../components/UserInput'
 import Users from '../components/Users'
 import User from '../components/User'
@@ -20,8 +18,6 @@ class UsersContainer extends React.Component {
     return(
       <div>
         <Switch>
-          <Route path='/login' component={Login} />
-          <Route path='/logout' component={Logout} />
           <Route path='/users/:id/edit' render={(routerProps) => <UserEdit {...routerProps} user={this.props.user} />} />
           <Route path='/users/new' component={UserInput} />
           <Route path='/users/:id' render={(routerProps) => <User {...routerProps} users={this.props.users} />} />

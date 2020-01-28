@@ -9,6 +9,10 @@ const NavBarContainer = ({currentUser}) => {
 
   return (
     <div className='navbar'>
+      <button>Login</button>
+      OR
+      <button>Sign Up</button>
+
       <Link to='/'>Datescope</Link>
       <Link to='/users'>Profiles</Link>
       {currentUser ? <strong>Welcome, {currentUser.name}!</strong> : ''}
