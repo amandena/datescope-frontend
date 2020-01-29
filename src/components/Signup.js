@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {addUser} from '../actions/addUser'
 
-class UserInput extends React.Component {
+class Signup extends React.Component {
   state = {
     email: '',
     password: '',
@@ -103,4 +103,4 @@ class UserInput extends React.Component {
   }
 }
 
-export default connect(null, {addUser})(UserInput)
+export default connect(null, {addUser})(Signup)

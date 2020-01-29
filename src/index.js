@@ -7,6 +7,7 @@ import {BrowserRouter as Router} from 'react-router-dom'
 import userReducer from './reducers/userReducer'
 import currentUser from './reducers/currentUser'
 import loginForm from './reducers/loginForm'
+import signupForm from './reducers/signupForm'
 
 
 import App from './App'
@@ -16,7 +17,8 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const reducers = combineReducers({
   users: userReducer,
   currentUser,
-  loginForm
+  loginForm,
+  signupForm
 })
 
 let store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)))

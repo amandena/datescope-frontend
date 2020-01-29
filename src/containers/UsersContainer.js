@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Route, Switch} from 'react-router-dom'
-import UserInput from '../components/UserInput'
+import Signup from '../components/Signup'
 import Users from '../components/Users'
 import User from '../components/User'
 import UserEdit from '../components/UserEdit'
@@ -19,7 +19,7 @@ class UsersContainer extends React.Component {
       <div>
         <Switch>
           <Route path='/users/:id/edit' render={(routerProps) => <UserEdit {...routerProps} user={this.props.user} />} />
-          <Route path='/users/new' component={UserInput} />
+          <Route path='/users/new' component={Signup} />
           <Route path='/users/:id' render={(routerProps) => <User {...routerProps} users={this.props.users} />} />
           <Route path='/users' render={() => <Users users={this.props.users} />} />
         </Switch>
