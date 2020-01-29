@@ -1,4 +1,4 @@
-export const addUser = data => {
+export const signup = data => {
   return (dispatch) => {
     fetch('http://localhost:3000/api/v1/users', {
       headers: {
