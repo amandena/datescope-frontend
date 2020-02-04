@@ -1,4 +1,4 @@
-export const loginUser = credentials => {
+export const loginUser = (credentials, history) => {
   console.log('credentials are', credentials)
   return (dispatch) => {
     fetch('http://localhost:3000/api/v1/login', {
@@ -17,6 +17,7 @@ export const loginUser = credentials => {
         } else {
           dispatch({type: 'SET_CURRENT_USER', user: user})
           dispatch({type: 'RESET_LOGIN_FORM'})
+          history.push('/')
         }
       })
       .catch(console.log)
