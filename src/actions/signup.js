@@ -1,4 +1,4 @@
-export const signup = credentials => {
+export const signup = (credentials, history) => {
   return (dispatch) => {
     const userInfo = {
       user: credentials
@@ -19,6 +19,7 @@ export const signup = credentials => {
         } else {
           dispatch({type: 'SET_CURRENT_USER', user: user})
           dispatch({type: 'RESET_SIGNUP_FORM'})
+          history.push('/')
         }
       })
   }
