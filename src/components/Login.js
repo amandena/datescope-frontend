@@ -1,10 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
 import {updateLoginForm} from '../actions/updateLoginForm'
 import {loginUser} from '../actions/loginUser'
 
-const Login = ({loginFormData, updateLoginForm, loginUser}) => {
+const Login = ({loginFormData, updateLoginForm, loginUser, history}) => {
   const handleChange = event => {
     const {name, value} = event.target
     const updatedFormInfo = {
@@ -16,7 +15,7 @@ const Login = ({loginFormData, updateLoginForm, loginUser}) => {
 
   const handleSubmit = event => {
     event.preventDefault()
-    loginUser(loginFormData)
+    loginUser(loginFormData, history)
   }
 
 
@@ -27,7 +26,6 @@ const Login = ({loginFormData, updateLoginForm, loginUser}) => {
         <input type='password' placeholder='Password' name='password' value={loginFormData.password} onChange={handleChange} /><br/>
         <input type='submit' value='Login' />
       </form>
-      <p>New to Datescope? Create account <Link to='/users/new'>here</Link>.</p>
     </div>
   )
 }
