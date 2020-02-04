@@ -1,23 +1,33 @@
 import React from 'react'
-import {Route, Switch} from 'react-router-dom'
+import {Route, Switch, withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
 import NavBarContainer from './containers/NavBarContainer'
 import UsersContainer from './containers/UsersContainer'
 import Signup from './components/Signup'
 import Login from './components/Login'
 import Logout from './components/Logout'
+import Messages from './components/Messages'
+import Home from './components/Home'
+import {fetchUsers} from './actions/fetchUsers'
+import {getCurrentUser} from './actions/getCurrentUser'
 
 
 class App extends React.Component {
-
+  componentDidMount() {
+    this.props.fetchUsers()
+    this.props.getCurrentUser()
+  }
 
   render() {
+    const {loggedIn} = this.props
     return(
       <div>
         <NavBarContainer />
         <Switch>
-          <Route path='/signup' component={Signup} />
-          <Route path='/login' component={Login} />
-          <Route path='/logout' component={Logout} />
+          <Route exact path='/' render={(props) => loggedIn ? <Messages {...props} /> : <Home {...props} /> } />
+          <Route exact path='/signup' component={Signup} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/logout' component={Logout} />
         </Switch>
         <UsersContainer />
       </div>
@@ -25,4 +35,10 @@ class App extends React.Component {
   }
 }
 
-export default App
+const mapStateToProps = state => {
+  return ({
+    loggedIn: !!state.currentUser
+  })
+}
+
+export default withRouter(connect(mapStateToProps, {fetchUsers, getCurrentUser})(App))
