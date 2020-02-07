@@ -8,6 +8,7 @@ import userReducer from './reducers/userReducer'
 import currentUser from './reducers/currentUser'
 import loginForm from './reducers/loginForm'
 import signupForm from './reducers/signupForm'
+import messageInputForm from './reducers/messageInputForm'
 
 
 import App from './App'
@@ -18,7 +19,8 @@ const reducers = combineReducers({
   users: userReducer,
   currentUser,
   loginForm,
-  signupForm
+  signupForm,
+  messageInputForm
 })
 
 let store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)))
