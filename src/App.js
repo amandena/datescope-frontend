@@ -7,6 +7,7 @@ import Signup from './components/Signup'
 import Login from './components/Login'
 import Logout from './components/Logout'
 import Messages from './components/Messages'
+import MessageInput from './components/MessageInput'
 import Home from './components/Home'
 import {fetchUsers} from './actions/fetchUsers'
 import {getCurrentUser} from './actions/getCurrentUser'
@@ -28,6 +29,7 @@ class App extends React.Component {
           <Route exact path='/signup' component={Signup} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/logout' component={Logout} />
+          <Route exact path='/users/:id/messages/new' component={MessageInput} />
         </Switch>
         <UsersContainer />
       </div>
