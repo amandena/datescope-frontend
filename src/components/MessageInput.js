@@ -1,37 +1,41 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {addMessage} from '../actions/addMessage'
+import {updateMessageInput} from '../actions/updateMessageInput'
 
-class MessageInput extends React.Component {
-  state = {
-    comment: ''
+const MessageInput = ({messageInputFormData, history}) => {
+
+  const handleChange = event => {
+    const { name, value } = event.target
+    const updatedFormInfo = {
+      ...messageInputFormData,
+      [name]: value
+    }
+    updateMessageInput(updatedFormInfo)
   }
 
-  handleChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value
-    })
-  }
-
-  handleSubmit = event => {
+  const handleSubmit = event => {
     event.preventDefault()
-    this.props.addMessage(this.state, this.props.user.id)
-    this.setState({
-      comment: ''
-    })
+    
   }
 
-  render() {
-    return(
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>Message: </label>
-          <input type='text' placeholder='Message' value={this.state.comment} name='comment' onChange={this.handleChange} />
-          <input type='submit' value='Send' />
-        </form>
-      </div>
-    )
+
+  return(
+    <div>
+      <form onSubmit={handleSubmit}>
+        <label>Message: </label>
+        <input type='text' placeholder='Message' name='comment' value={messageInputFormData.comment} onChange={handleChange} />
+        <input type='submit' value='Send' />
+      </form>
+    </div>
+  )
+
+}
+
+const mapStateToProps = state => {
+  return {
+    messageInputFormData: state.messageInputForm
   }
 }
 
-export default connect(null, {addMessage})(MessageInput)
+export default connect(mapStateToProps, {updateMessageInput, addMessage})(MessageInput)
