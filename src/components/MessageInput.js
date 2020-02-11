@@ -3,20 +3,16 @@ import {connect} from 'react-redux'
 import {addMessage} from '../actions/addMessage'
 import {updateMessageInput} from '../actions/updateMessageInput'
 
-const MessageInput = ({messageInputFormData, history}) => {
+const MessageInput = ({messageInputFormData, updateMessageInput, history}) => {
 
   const handleChange = event => {
     const { name, value } = event.target
-    const updatedFormInfo = {
-      ...messageInputFormData,
-      [name]: value
-    }
-    updateMessageInput(updatedFormInfo)
+    updateMessageInput(name, value)
   }
 
   const handleSubmit = event => {
     event.preventDefault()
-    
+
   }
 
 
