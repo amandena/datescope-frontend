@@ -1,17 +1,23 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 const Users = ({users}) => {
-console.log(users)
   return(
     <div>
-      {users.users.map(user =>
-        <div key={user.id}>
-          <Link to={`/users/${user.id}`}>{user.name}</Link>
+      {users.users.map((user, id) =>
+        <div key={id}>
+          <Link to={`/users/${id}`}>{user.name}</Link>
         </div>
       )}
     </div>
   )
 }
 
-export default Users
+const mapStateToProps = state => {
+  return {
+    users: state.users
+  }
+}
+
+export default connect(mapStateToProps)(Users)
