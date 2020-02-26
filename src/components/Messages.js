@@ -2,17 +2,25 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {deleteMessage} from '../actions/deleteMessage'
 
-const Messages = props => {
+class Messages extends React.Component {
 
-  const handleDelete = (message) => {
-    props.deleteMessage(message.id, message.user_id)
+  handleDelete = (message) => {
+    deleteMessage(message.id, message.user_id)
   }
 
-  return(
-    <div>
-      {props.messages && props.messages.map(message => <p key={message.id}>{message.comment}<button onClick={() => handleDelete(message)}>Delete</button></p>)}
-    </div>
-  )
+  render(){
+    return(
+      <div>
+         {this.props.messages && this.props.messages.map(message => <p key={message.id}>{message.comment}<button onClick={() => this.props.handleDelete(message)}>Delete</button></p>)}
+      </div>
+    )
+  }
 }
 
-export default connect(null, {deleteMessage})(Messages)
+const mapStateToProps = state => {
+  return {
+    messages: state.currentUser.messages
+  }
+}
+
+export default connect(mapStateToProps, {deleteMessage})(Messages)
