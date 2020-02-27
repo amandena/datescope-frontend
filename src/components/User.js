@@ -11,7 +11,7 @@ const User = ({users, match}) => {
       <h2>{user ? user.name : null} - {user ? user.age : null} - {user ? user.sign : null}</h2>
       <p>{user ? user.bio : null}</p>
       <Link to={`/users/${user && user.id}/edit`}>Edit Profile</Link>
-      
+
     </div>
   )
 }

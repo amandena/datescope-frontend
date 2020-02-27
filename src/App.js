@@ -26,12 +26,12 @@ class App extends React.Component {
       <div className="App">
         {loggedIn ? <NavBarContainer location={this.props.location}/> : <Home/>}
         <Switch>
-          <Route exact path='/signup' component={Signup} />
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/users/:id/messages' component={Messages} />
-          <Route exact path='/users/:id/messages/new' component={MessageInput} />
+          <Route exact path='/signup' component={Signup}/>
+          <Route exact path='/login' component={Login}/>
+          <Route exact path='/users/:id/messages' component={Messages}/>
+          <Route exact path='/users/:id/messages/new' component={MessageInput}/>
         </Switch>
-        <UsersContainer />
+        <UsersContainer/>
       </div>
     )
   }

@@ -16,7 +16,3 @@ class MessagesContainer extends React.Component {
 }
 
 export default MessagesContainer
-
-// <Route path='/messages/new' component={MessageInput} />
-// <Route path='/messages' render={() => <Messages messages={this.props.messages} />} />
-// probably don't need Messages route or component
