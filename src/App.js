@@ -6,8 +6,6 @@ import NavBarContainer from './containers/NavBarContainer'
 import UsersContainer from './containers/UsersContainer'
 import Signup from './components/Signup'
 import Login from './components/Login'
-import Messages from './components/Messages'
-import MessageInput from './components/MessageInput'
 import Home from './components/Home'
 import {fetchUsers} from './actions/fetchUsers'
 import {getCurrentUser} from './actions/getCurrentUser'
@@ -28,10 +26,9 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/signup' component={Signup}/>
           <Route exact path='/login' component={Login}/>
-          <Route exact path='/users/:id/messages' component={Messages}/>
-          <Route exact path='/users/:id/messages/new' component={MessageInput}/>
+          <Route path='/users' component={UsersContainer}/>
         </Switch>
-        <UsersContainer/>
+
       </div>
     )
   }
