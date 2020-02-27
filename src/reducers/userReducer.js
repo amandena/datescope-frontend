@@ -26,9 +26,6 @@ export default function userReducer(state = {users: []}, action) {
       })
         return {...state, users: usersD}
 
-      case 'CLEAR_MESSAGES':
-        return []
-
       case 'EDIT_USER':
       let usersE = state.users.map(user => {
         if (user.id === action.payload.id) {
