@@ -10,7 +10,7 @@ const NavBarContainer = ({currentUser, loggedIn}) => {
     <div className='navbar'>
       <NavLink exact to='/'>Datescope|  |</NavLink>
       <NavLink exact to='/users'>Profiles|  |</NavLink>
-      <NavLink exact to='/users/:id/messages'>Messages|  |</NavLink>
+      <NavLink exact to={`/users/${currentUser && currentUser.id}/messages`}>Messages|  |</NavLink>
       {currentUser ? <Logout /> : <NavLink exact to='/login'>Login</NavLink>}
       {loggedIn ? <strong>Welcome, {currentUser.name}!</strong> : ''}
     </div>
