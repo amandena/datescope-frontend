@@ -1,9 +1,9 @@
-export default function currentUser(state = null, action) {
+export default function currentUser(state = {messages: []}, action) {
   switch (action.type) {
     case 'SET_CURRENT_USER':
       return action.user
     case 'CLEAR_CURRENT_USER':
-      return null
+      return {}
     default:
       return state
   }
