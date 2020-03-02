@@ -4,8 +4,7 @@ import {Route, Switch} from 'react-router-dom'
 import Users from '../components/Users'
 import User from '../components/User'
 import UserEdit from '../components/UserEdit'
-import Messages from '../components/Messages'
-import MessageInput from '../components/MessageInput'
+import MessagesContainer from './MessagesContainer'
 
 class UsersContainer extends React.Component {
 
@@ -13,8 +12,7 @@ class UsersContainer extends React.Component {
     return(
       <div>
         <Switch>
-          <Route path='/users/:id/messages' component={Messages}/>
-          <Route path='/users/:id/messages/new' component={MessageInput}/>
+          <Route path='/users/:id/messages' component={MessagesContainer}/>
           <Route path='/users/:id/edit' render={(routerProps) => <UserEdit {...routerProps}/>}/>
           <Route path='/users/:id' render={(routerProps) => <User {...routerProps}/>}/>
           <Route path='/users' render={() => <Users users={this.props.users}/>}/>
