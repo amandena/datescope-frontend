@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {addMessage} from '../actions/addMessage'
 import {updateMessageInput} from '../actions/updateMessageInput'
 
-const MessageInput = ({messageInputFormData, updateMessageInput, history}) => {
+const MessageInput = ({messageInputFormData, updateMessageInput, addMessage, userId}) => {
 
   const handleChange = event => {
     const { name, value } = event.target
@@ -12,7 +12,7 @@ const MessageInput = ({messageInputFormData, updateMessageInput, history}) => {
 
   const handleSubmit = event => {
     event.preventDefault()
-
+    addMessage(messageInputFormData, userId)
   }
 
 
@@ -20,8 +20,8 @@ const MessageInput = ({messageInputFormData, updateMessageInput, history}) => {
     <div>
       <form onSubmit={handleSubmit}>
         <label>Message: </label>
-        <input type='text' placeholder='Message' name='comment' value={messageInputFormData.comment} onChange={handleChange} />
-        <input type='submit' value='Send' />
+        <input type='text' placeholder='Message' name='comment' value={messageInputFormData.comment} onChange={handleChange}/>
+        <input type='submit' value='Send'/>
       </form>
     </div>
   )
@@ -30,7 +30,8 @@ const MessageInput = ({messageInputFormData, updateMessageInput, history}) => {
 
 const mapStateToProps = state => {
   return {
-    messageInputFormData: state.messageInputForm
+    messageInputFormData: state.messageInputForm,
+    userId: state.currentUser.id
   }
 }
 
