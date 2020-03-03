@@ -5,13 +5,13 @@ import {deleteMessage} from '../actions/deleteMessage'
 class Messages extends React.Component {
 
   handleDelete = (message) => {
-    deleteMessage(message.id, message.user_id)
+    this.props.deleteMessage(message.id, message.user_id)
   }
 
   render(){
     return(
       <div>
-         {this.props.messages && this.props.messages.map(message => <p key={message.id}>{message.comment}<button onClick={() => this.props.handleDelete(message)}>Delete</button></p>)}
+         {this.props.messages && this.props.messages.map(message => <p key={message.id}>{message.comment}<button onClick={() => this.handleDelete(message)}>Delete</button></p>)}
       </div>
     )
   }
