@@ -7,8 +7,8 @@ class MessagesContainer extends React.Component {
   render() {
     return(
       <div>
-        <Messages messages={this.props.user && this.props.user.messages} />
-        <MessageInput user={this.props.user} />
+        <Messages/>
+        <MessageInput/>
       </div>
     )
   }
