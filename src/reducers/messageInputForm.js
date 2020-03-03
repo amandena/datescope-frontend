@@ -10,8 +10,10 @@ export default (state = initialState, action) => {
         [action.formData.name]: action.formData.value
       }
       return returnValue
+
     case 'RESET_MESSAGE_INPUT_FORM':
       return initialState
+
     default:
       return state
   }
