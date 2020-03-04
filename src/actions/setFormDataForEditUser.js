@@ -1,7 +1,7 @@
 export const setFormDataForEditUser = user => {
   const userFormData = {
+    id: user.id,
     email: user.email,
-    password: user.password,
     name: user.name,
     age: user.age,
     sign: user.sign,
