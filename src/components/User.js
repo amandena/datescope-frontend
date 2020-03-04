@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 
 const User = ({users, currentUser, match}) => {
 
-  let user = users.users[match.params.id]
+  let user = users.users[match.params.id-1]
 
   return(
     <div>
