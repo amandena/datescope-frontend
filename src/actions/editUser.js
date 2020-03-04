@@ -14,7 +14,6 @@ export const editUser = (data, history) => {
           alert(user.error)
         } else {
           dispatch({type: 'EDIT_USER', payload: user})
-          dispatch({type: 'RESET_SIGNUP_FORM'})
           history.push('/')
         }
       })
