@@ -7,14 +7,13 @@ import UsersContainer from './containers/UsersContainer'
 import NewUserFormWrapper from './components/NewUserFormWrapper'
 import Login from './components/Login'
 import Home from './components/Home'
-import {fetchUsers} from './actions/fetchUsers'
+
 import {getCurrentUser} from './actions/getCurrentUser'
 
 
 
 class App extends React.Component {
   componentDidMount() {
-    this.props.fetchUsers()
     this.props.getCurrentUser()
   }
 
@@ -39,4 +38,4 @@ const mapStateToProps = state => {
   })
 }
 
-export default withRouter(connect(mapStateToProps, {fetchUsers, getCurrentUser})(App))
+export default withRouter(connect(mapStateToProps, {getCurrentUser})(App))
