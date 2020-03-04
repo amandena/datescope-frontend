@@ -12,7 +12,9 @@ class UserEditWrapper extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    this.props.user && prevProps.user && this.props.setFormDataForEditUser(this.props.user)
+    if(this.props.user !== prevProps.user) {
+      this.props.setFormDataForEditUser(this.props.user)
+    }
   }
 
   componentWillUnmount() {
