@@ -5,8 +5,7 @@ import Signup from './Signup'
 
 const NewUserFormWrapper = ({history, signup}) => {
 
-  const handleSubmit = (event, signupFormData, history) => {
-    event.preventDefault()
+  const handleSubmit = (signupFormData, history) => {
     signup(signupFormData, history)
   }
 
