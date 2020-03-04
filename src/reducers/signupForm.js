@@ -1,15 +1,4 @@
-const initialState = {
-  email: '',
-  password: '',
-  name: '',
-  age: '',
-  sign: '',
-  bio: '',
-  gender: '',
-  preference: '',
-  location: '',
-  instagram: ''
-}
+const initialState = []
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -22,9 +11,9 @@ export default (state = initialState, action) => {
     case 'SET_FORM_DATA_FOR_EDIT_USER':
       return action.userFormData
 
-    case 'EDIT_USER':
-      console.log("in edit user case, action is", action)
-      return state
+    // case 'EDIT_USER':
+    // console.log(state)
+    //   return state.map(user => user.id === action.user.id ? action.user : user)
 
     default:
       return state
