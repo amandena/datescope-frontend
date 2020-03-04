@@ -23,8 +23,9 @@ const Signup = ({signupFormData, updateSignupForm, history, handleSubmit, editMo
         <label>Email: </label>
         <input type='text' placeholder='Email' value={signupFormData.email} name='email' onChange={handleChange} /><br/>
 
-        <label>Password: </label>
-        <input type='password' placeholder='Password' value={signupFormData.password} name='password' onChange={handleChange} /><br/>
+      {!editMode ? <><label>Password: </label>
+        <input type='password' placeholder='Password' value={signupFormData.password} name='password' onChange={handleChange} /><br/></>
+        : null}
 
         <label>Name: </label>
         <input type='text' placeholder='Name' value={signupFormData.name} name='name' onChange={handleChange} /><br/>
