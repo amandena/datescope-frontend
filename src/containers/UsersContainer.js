@@ -1,13 +1,17 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Route, Switch} from 'react-router-dom'
-// import Signup from '../components/Signup'
 import Users from '../components/Users'
 import User from '../components/User'
 import UserEditWrapper from '../components/UserEditWrapper'
 import MessagesContainer from './MessagesContainer'
+import {fetchUsers} from '../actions/fetchUsers'
 
 class UsersContainer extends React.Component {
+
+  componentDidMount() {
+    this.props.fetchUsers()
+  }
 
   render() {
     return(
@@ -33,4 +37,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(UsersContainer)
+export default connect(mapStateToProps, {fetchUsers})(UsersContainer)
