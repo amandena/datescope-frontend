@@ -1,9 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {updateSignupForm} from '../actions/updateSignupForm'
-import {signup} from '../actions/signup'
 
-const Signup = ({signupFormData, updateSignupForm, signup, history}) => {
+const Signup = ({signupFormData, updateSignupForm, history, handleSubmit, editMode}) => {
 
   const handleChange = event => {
     const {name, value} = event.target
@@ -14,14 +13,13 @@ const Signup = ({signupFormData, updateSignupForm, signup, history}) => {
     updateSignupForm(updatedFormInfo)
   }
 
-  const handleSubmit = event => {
-    event.preventDefault()
-    signup(signupFormData, history)
-  }
-
   return(
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(event) => {
+          event.preventDefault()
+          handleSubmit(signupFormData)
+        }
+      }>
         <label>Email: </label>
         <input type='text' placeholder='Email' value={signupFormData.email} name='email' onChange={handleChange} /><br/>
 
@@ -75,7 +73,7 @@ const Signup = ({signupFormData, updateSignupForm, signup, history}) => {
         <label>Instagram: </label>
         <input type='text' placeholder='Instagram' value={signupFormData.instagram} name='instagram' onChange={handleChange} /><br/>
 
-        <input type='submit' value='Create Profile' />
+        <input type='submit' value={editMode ? 'Edit Profile' : 'Create Profile'} />
       </form>
     </div>
   )
@@ -87,4 +85,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {updateSignupForm, signup})(Signup)
+export default connect(mapStateToProps, {updateSignupForm})(Signup)
