@@ -4,7 +4,7 @@ import {Route, Switch, withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import NavBarContainer from './containers/NavBarContainer'
 import UsersContainer from './containers/UsersContainer'
-import Signup from './components/Signup'
+import NewUserFormWrapper from './components/NewUserFormWrapper'
 import Login from './components/Login'
 import Home from './components/Home'
 import {fetchUsers} from './actions/fetchUsers'
@@ -19,16 +19,15 @@ class App extends React.Component {
   }
 
   render() {
-    const {loggedIn} = this.props
+    const {currentUser} = this.props
     return(
       <div className="App">
-        {loggedIn ? <NavBarContainer location={this.props.location}/> : <Home/>}
+        {currentUser.id ? <NavBarContainer location={this.props.location}/> : <Home/>}
         <Switch>
-          <Route exact path='/signup' component={Signup}/>
+          <Route exact path='/signup' component={NewUserFormWrapper}/>
           <Route exact path='/login' component={Login}/>
           <Route path='/users' component={UsersContainer}/>
         </Switch>
-
       </div>
     )
   }
@@ -36,7 +35,7 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return ({
-    loggedIn: !!state.currentUser
+    currentUser: state.currentUser
   })
 }
 
