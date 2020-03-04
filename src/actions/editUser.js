@@ -1,4 +1,4 @@
-export const editUser = data => {
+export const editUser = (data, history) => {
   return (dispatch) => {
     fetch(`http://localhost:3000/api/v1/users/${data.id}`, {
       headers: {
@@ -14,6 +14,8 @@ export const editUser = data => {
           alert(user.error)
         } else {
           dispatch({type: 'EDIT_USER', payload: user})
+          dispatch({type: 'RESET_SIGNUP_FORM'})
+          history.push('/')
         }
       })
   }
