@@ -7,6 +7,7 @@ import UsersContainer from './containers/UsersContainer'
 import NewUserFormWrapper from './components/NewUserFormWrapper'
 import Login from './components/Login'
 import LoginSignup from './components/LoginSignup'
+import Home from './components/Home'
 
 import {getCurrentUser} from './actions/getCurrentUser'
 
@@ -23,6 +24,7 @@ class App extends React.Component {
       <div className="App">
         {currentUser.id ? <NavBarContainer location={this.props.location}/> : <LoginSignup/>}
         <Switch>
+          <Route exact path='/' component={Home}/>
           <Route exact path='/signup' component={NewUserFormWrapper}/>
           <Route exact path='/login' component={Login}/>
           <Route path='/users' component={UsersContainer}/>
