@@ -8,7 +8,6 @@ import NewUserFormWrapper from './components/NewUserFormWrapper'
 import Login from './components/Login'
 import LoginSignup from './components/LoginSignup'
 import Home from './components/Home'
-
 import {getCurrentUser} from './actions/getCurrentUser'
 
 
