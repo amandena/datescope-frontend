@@ -9,11 +9,7 @@ export const getCurrentUser = () => {
     })
       .then(res => res.json())
       .then(user => {
-        if (user.error) {
-          alert(user.error)
-        } else {
-          dispatch({type: 'GET_CURRENT_USER', user: user})
-        }
+        dispatch({type: 'GET_CURRENT_USER', user: user})
       })
   }
 }
