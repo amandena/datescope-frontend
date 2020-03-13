@@ -1,6 +1,6 @@
-export const updateCurrentUser = currentUserData => {
+export const updateCurrentUser = (newData) => {
   return {
     type: 'UPDATE_CURRENT_USER_DATA',
-    currentUserData
+    payload: newData
   }
 }
