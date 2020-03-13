@@ -15,7 +15,7 @@ class Messenger extends React.Component {
     return(
       <div>
          <h3>Messages to: {messagedUser && messagedUser.name}</h3>
-         {this.props.messages && this.props.messages.map(message => <p key={message.id}>{message.comment}<button onClick={() => this.handleDelete(message)}>Delete</button></p>)}
+         {this.props.messages && this.props.messages.map((message, id) => <p key={id}>{message.comment}<button onClick={() => this.handleDelete(message)}>Delete</button></p>)}
          <MessageInput/>
       </div>
     )
