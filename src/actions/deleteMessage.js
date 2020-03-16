@@ -8,6 +8,8 @@ export const deleteMessage = (messageId, userId) => {
       }
     })
       .then(res => res.json())
-      .then(user => dispatch({type: 'DELETE_MESSAGE', payload: user}))
+      .then(user => {
+        dispatch({type: 'DELETE_MESSAGE', payload: user})
+      })
   }
 }
