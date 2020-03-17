@@ -5,8 +5,7 @@ export default function currentUser(state = {messages: []}, action) {
 
     case 'UPDATE_CURRENT_USER_DATA':
       const user = (state !== action.payload ? action.payload : state)
-      console.log(state)
-      return {...state, currentUser: user}
+      return {...state, ...user}
 
     case 'UPDATE_CURRENT_USER_MESSAGES_DATA':
       return {...state, messages: state.messages.concat(action.payload)}
