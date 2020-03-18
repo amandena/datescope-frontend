@@ -23,9 +23,9 @@ const Signup = ({signupFormData, updateSignupForm, history, handleSubmit, editMo
         <label>Email: </label>
         <input type='text' placeholder='Email' value={signupFormData.email} name='email' onChange={handleChange} /><br/>
 
-        {!editMode ? <><label>Password: </label>
-          <input type='password' placeholder='Password' value={signupFormData.password} name='password' onChange={handleChange} /><br/></>
-          : null}
+        {!editMode ? <div><label>Password: </label>
+          <input type='password' placeholder='Password' value={signupFormData.password} name='password' onChange={handleChange} /><br/></div>
+          : <div><input type='hidden'></input></div>}
 
         <label>Name: </label>
         <input type='text' placeholder='Name' value={signupFormData.name} name='name' onChange={handleChange} /><br/>
