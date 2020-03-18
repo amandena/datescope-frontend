@@ -7,7 +7,7 @@ const User = ({users, match}) => {
   let user = users.users[match.params.id-1]
 
   return(
-    <div>
+    <div className='user'>
       <h2>{user ? user.name : null} - {user ? user.age : null} - {user ? user.sign : null}</h2>
       <p>{user ? user.bio : null}</p>
       <Link to={`/users/${user && user.id}/messenger`}>Send Message</Link>

@@ -29,7 +29,7 @@ class UserEditWrapper extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='user-edit-wrapper'>
         <Signup editMode handleSubmit={this.handleSubmit}/>
       </div>
     )

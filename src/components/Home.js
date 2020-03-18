@@ -16,7 +16,7 @@ const Home = ({currentUser}) => {
   }
 
   return(
-    <div>
+    <div className='home'>
       {userInfo}
     </div>
   )

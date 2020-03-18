@@ -16,7 +16,7 @@ class UsersContainer extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className='users-container'>
         <Switch>
           <Route path='/users/:id/messenger' render={(routerProps) => <Messenger {...routerProps}/>}/>
           <Route path='/users/:id/messages' render={() => <Messages users={this.props.users}/>}/>

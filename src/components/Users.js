@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 
 const Users = ({users}) => {
   return(
-    <div>
+    <div className='users'>
       {users.users.map((user) =>
         <div key={user.id}>
           <Link to={`/users/${user.id}`}>{user.name}</Link>

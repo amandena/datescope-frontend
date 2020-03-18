@@ -12,7 +12,7 @@ class Messages extends React.Component {
 
   render(){
     return(
-      <div>
+      <div className='messages'>
         {this.props.messages && this.props.messages.map(message => <p key={message.id}>{message.comment}<button onClick={() => this.handleDelete(message)}>Delete</button></p>)}
       </div>
     )

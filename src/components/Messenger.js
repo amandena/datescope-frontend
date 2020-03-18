@@ -15,7 +15,7 @@ class Messenger extends React.Component {
     const {users} = this.props
     const messagedUser = users.users[this.props.match.params.id-1]
     return(
-      <div>
+      <div className='messenger'>
          <h3>Messages to: {messagedUser && messagedUser.name}</h3>
          {this.props.messages && this.props.messages.map((message, id) => <p key={id}>{message.comment}<button onClick={() => this.handleDelete(message)}>Delete</button></p>)}
          <MessageInput/>

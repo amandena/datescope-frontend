@@ -14,7 +14,7 @@ const Signup = ({signupFormData, updateSignupForm, history, handleSubmit, editMo
   }
 
   return(
-    <div>
+    <div className='signup'>
       <form onSubmit={(event) => {
           event.preventDefault()
           handleSubmit(signupFormData)

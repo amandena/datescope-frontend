@@ -10,7 +10,7 @@ const NewUserFormWrapper = ({history, signup}) => {
   }
 
   return (
-    <div>
+    <div className='new-user-form-wrapper'>
       <Signup history={history} handleSubmit={handleSubmit}/>
     </div>
   )
