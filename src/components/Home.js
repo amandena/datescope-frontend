@@ -2,13 +2,22 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 
-
 const Home = ({currentUser}) => {
+  let userInfo
+  if (currentUser.id) {
+    userInfo =
+      <div>
+        <h2>{currentUser.name} - {currentUser.age} - {currentUser.sign}</h2>
+        <p>{currentUser.bio}</p>
+        <Link to={`/users/${currentUser.id}/edit`}>Edit Profile</Link>
+      </div>
+  } else {
+    userInfo = ''
+  }
+
   return(
     <div>
-      <h2>{currentUser.id ? currentUser.name : null} - {currentUser.id ? currentUser.age : null} - {currentUser.id ? currentUser.sign : null}</h2>
-      <p>{currentUser.id ? currentUser.bio : null}</p>
-      <Link to={`/users/${currentUser.id && currentUser.id}/edit`}>Edit Profile</Link>
+      {userInfo}
     </div>
   )
 }
