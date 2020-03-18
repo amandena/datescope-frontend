@@ -3,6 +3,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  background-color: maroon;
+  color: red;
 }
 
 .navbar {
@@ -10,6 +13,22 @@
   flex-direction: row;
 }
 
+a {
+  color: #ff9900;
+}
+
+a:hover {
+  color: skyblue;
+}
+
 a.active {
   color: red;
 }
+
+/*
+  dark purple: #990099
+  dark pink: #cc0066
+  dark orange: #e62e00
+  orange: #ff751a
+  yellow orange: #ff9900
+*/
