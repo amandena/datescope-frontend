@@ -1,6 +1,7 @@
 export default function userReducer(state = {users: []}, action) {
   switch (action.type) {
     case 'FETCH_USERS':
+    console.log(action.payload)
       return {users: action.payload}
 
     case 'ADD_USER':
