@@ -11,10 +11,9 @@ export const loginUser = (credentials, history) => {
     })
       .then(res => res.json())
       .then(user => {
-        dispatch({type: 'SET_CURRENT_USER', user: user})
+        dispatch({type: 'GET_CURRENT_USER', user: user})
         dispatch({type: 'RESET_LOGIN_FORM'})
         history.push('/')
       })
-      .catch(console.log)
   }
 }
