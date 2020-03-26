@@ -9,12 +9,14 @@ import Login from './components/Login'
 import LoginSignup from './components/LoginSignup'
 import Home from './components/Home'
 import {getCurrentUser} from './actions/getCurrentUser'
-
+import {fetchUsers} from './actions/fetchUsers'
 
 
 class App extends React.Component {
   componentDidMount() {
     this.props.getCurrentUser()
+    // const {currentUser} = this.props
+    // this.props.fetchUsers(currentUser.id)
   }
 
   render() {
@@ -35,8 +37,9 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return ({
+    users: state.users,
     currentUser: state.currentUser
   })
 }
 
-export default withRouter(connect(mapStateToProps, {getCurrentUser})(App))
+export default withRouter(connect(mapStateToProps, {getCurrentUser, fetchUsers})(App))
