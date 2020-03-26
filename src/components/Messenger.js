@@ -8,12 +8,12 @@ class Messenger extends React.Component {
 
   handleDelete = (message) => {
     this.props.deleteMessage(message.id, message.user_id)
-    this.props.deleteCurrentUserMessage(message)
+    // this.props.deleteCurrentUserMessage(message)
   }
 
   render(){
     const {users} = this.props
-    const messagedUser = users.users[this.props.match.params.id-1]
+    const messagedUser = users[this.props.match.params.id-1]
     return(
       <div className='messenger'>
          <h3>Messages to: {messagedUser && messagedUser.name}</h3>
