@@ -12,23 +12,21 @@ class UsersContainer extends React.Component {
 
   componentDidMount() {
     const {currentUser} = this.props
-    if (currentUser.id) {
-      this.props.fetchUsers(currentUser.id)
-    }
+    this.props.fetchUsers(currentUser.id)
   }
 
   render() {
     return(
       <div className='users-container'>
         <Switch>
-          <Route path='/users/:id/matches' render={() => <Users users={this.props.users}/>}/>
-          <Route path='/users/:id/messenger' render={(routerProps) => <Messenger {...routerProps}/>}/>
+          <Route path='/users/:id/matches/:id' render={(routerProps) => <User {...routerProps}/>}/>
+          <Route path='/users/:id/messenger/:id' render={(routerProps) => <Messenger {...routerProps}/>}/>
           <Route path='/users/:id/messages' render={() => <Messages users={this.props.users}/>}/>
+          <Route path='/users/:id/matches' render={(routerProps) => <Users {...routerProps} users={this.props.users}/>}/>
           <Route path='/users/:id/edit' render={(routerProps) => {
               return <UserEditWrapper user={this.props.currentUser} {...routerProps}/>}
             }
           />
-          <Route path='/users/:id' render={(routerProps) => <User {...routerProps}/>}/>
         </Switch>
       </div>
     )
