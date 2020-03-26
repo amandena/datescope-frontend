@@ -2,13 +2,13 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 
-const Users = ({users}) => {
-  console.log(users)
+const Users = ({users, currentUser}) => {
+
   return(
     <div className='users'>
       {users.map((user) =>
         <div key={user.id}>
-          <Link to={`/users/${user.id}`}>{user.name}</Link>
+          <Link to={`/users/${currentUser.id}/matches/${user.id}`}>{user.name}</Link>
         </div>
       )}
     </div>
@@ -17,7 +17,8 @@ const Users = ({users}) => {
 
 const mapStateToProps = state => {
   return {
-    users: state.users.users
+    users: state.users,
+    currentUser: state.currentUser
   }
 }
 
