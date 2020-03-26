@@ -7,21 +7,44 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-family: "Palatino Linotype", "Book Antiqua", serif;
   color: red;
+  margin: 0 310px;
 }
 
 .navbar {
   display: flex;
   flex-direction: row;
+  font-size: 25px;
+}
+
+.logout input {
+  background: none;
+  border: none;
+  padding: 15px;
+  font-size: 25px;
+  color: #ff9900;
+  display: flex;
+  flex-direction: row;
+  font-family: "Palatino Linotype", "Book Antiqua", serif;
+}
+
+.logout input:hover {
+  color: skyblue;
+  background-color: #990099;
 }
 
 a {
   color: #ff9900;
+  padding: 15px;
+  text-decoration: none;
+  justify-content: center;
+  display: flex;
 }
 
 a:hover {
   color: skyblue;
+  background-color: #990099;
 }
 
 a.active {
