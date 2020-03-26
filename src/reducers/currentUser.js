@@ -1,4 +1,4 @@
-export default function currentUser(state = {messages: []}, action) {
+export default function currentUser(state = {}, action) {
   switch (action.type) {
     case 'GET_CURRENT_USER':
       return action.user
@@ -7,11 +7,13 @@ export default function currentUser(state = {messages: []}, action) {
       const user = (state !== action.payload ? action.payload : state)
       return {...state, ...user}
 
-    case 'UPDATE_CURRENT_USER_MESSAGES_DATA':
-      return {...state, messages: state.messages.concat(action.payload)}
+    case 'ADD_MESSAGE':
+      const userA = (state !== action.payload ? action.payload : state)
+      return {...state, ...userA}
 
-    case 'DELETE_CURRENT_USER_MESSAGE':
-      return {...state, messages: state.messages.filter(message => message === action.payload ? false : true)}
+    case 'DELETE_MESSAGE':
+      const userD = (state !== action.payload ? action.payload : state)
+      return {...state, ...userD}
 
     case 'CLEAR_CURRENT_USER':
       return {}
