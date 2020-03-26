@@ -7,7 +7,7 @@ class Messages extends React.Component {
 
   handleDelete = (message) => {
     this.props.deleteMessage(message.id, message.user_id)
-    this.props.deleteCurrentUserMessage(message)
+    // this.props.deleteCurrentUserMessage(message)
   }
 
   render(){
