@@ -2,9 +2,8 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {addMessage} from '../actions/addMessage'
 import {updateMessageInput} from '../actions/updateMessageInput'
-import {updateCurrentUserMessages} from '../actions/updateCurrentUserMessages'
 
-const MessageInput = ({messageInputFormData, updateMessageInput, addMessage, userId, currentUser, updateCurrentUserMessages}) => {
+const MessageInput = ({messageInputFormData, updateMessageInput, addMessage, userId}) => {
 
   const handleChange = event => {
     const { name, value } = event.target
@@ -14,7 +13,6 @@ const MessageInput = ({messageInputFormData, updateMessageInput, addMessage, use
   const handleSubmit = event => {
     event.preventDefault()
     addMessage(messageInputFormData, userId)
-    updateCurrentUserMessages(messageInputFormData)
   }
 
 
@@ -33,9 +31,8 @@ const MessageInput = ({messageInputFormData, updateMessageInput, addMessage, use
 const mapStateToProps = state => {
   return {
     messageInputFormData: state.messageInputForm,
-    userId: state.currentUser.id,
-    currentUser: state.currentUser
+    userId: state.currentUser.id
   }
 }
 
-export default connect(mapStateToProps, {updateMessageInput, addMessage, updateCurrentUserMessages})(MessageInput)
+export default connect(mapStateToProps, {updateMessageInput, addMessage})(MessageInput)
