@@ -2,7 +2,6 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {editUser} from '../actions/editUser'
 import {resetSignupForm} from '../actions/resetSignupForm'
-import {updateCurrentUser} from '../actions/updateCurrentUser'
 import {setFormDataForEditUser} from '../actions/setFormDataForEditUser'
 import Signup from './Signup'
 
@@ -22,9 +21,8 @@ class UserEditWrapper extends React.Component {
   }
 
   handleSubmit = (signupFormData) => {
-    const {editUser, history, updateCurrentUser} = this.props
+    const {editUser, history} = this.props
     editUser(signupFormData, history)
-    updateCurrentUser(signupFormData)
   }
 
   render() {
@@ -36,4 +34,4 @@ class UserEditWrapper extends React.Component {
   }
 }
 
-export default connect(null, {editUser, setFormDataForEditUser, resetSignupForm, updateCurrentUser})(UserEditWrapper)
+export default connect(null, {editUser, setFormDataForEditUser, resetSignupForm})(UserEditWrapper)
