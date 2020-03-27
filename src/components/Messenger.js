@@ -2,13 +2,11 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {deleteMessage} from '../actions/deleteMessage'
 import MessageInput from '../components/MessageInput'
-import {deleteCurrentUserMessage} from '../actions/deleteCurrentUserMessage'
 
 class Messenger extends React.Component {
 
   handleDelete = (message) => {
     this.props.deleteMessage(message.id, message.user_id)
-    // this.props.deleteCurrentUserMessage(message)
   }
 
   render(){
@@ -31,4 +29,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {deleteMessage, deleteCurrentUserMessage})(Messenger)
+export default connect(mapStateToProps, {deleteMessage})(Messenger)
