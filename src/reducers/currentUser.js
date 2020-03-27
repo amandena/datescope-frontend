@@ -3,7 +3,7 @@ export default function currentUser(state = {}, action) {
     case 'GET_CURRENT_USER':
       return action.user
 
-    case 'UPDATE_CURRENT_USER_DATA':
+    case 'EDIT_USER':
       const user = (state !== action.payload ? action.payload : state)
       return {...state, ...user}
 
