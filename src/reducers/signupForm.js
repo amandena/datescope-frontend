@@ -11,10 +11,6 @@ export default (state = initialState, action) => {
     case 'SET_FORM_DATA_FOR_EDIT_USER':
       return action.userFormData
 
-    // case 'EDIT_USER':
-    // console.log(state)
-    //   return state.map(user => user.id === action.user.id ? action.user : user)
-
     default:
       return state
   }
