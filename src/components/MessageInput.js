@@ -19,7 +19,6 @@ const MessageInput = ({messageInputFormData, updateMessageInput, addMessage, use
   return(
     <div className='message-input'>
       <form onSubmit={handleSubmit}>
-        <label>Message: </label>
         <input type='text' placeholder='Message' name='comment' value={messageInputFormData.comment} onChange={handleChange}/>
         <input type='submit' value='Send'/>
       </form>

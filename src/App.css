@@ -10,6 +10,7 @@ body {
   font-family: "Palatino Linotype", "Book Antiqua", serif;
   color: red;
   margin: 0 310px;
+  font-size: 17px
 }
 
 .navbar {
@@ -29,11 +30,6 @@ body {
   font-family: "Palatino Linotype", "Book Antiqua", serif;
 }
 
-.logout input:hover {
-  color: skyblue;
-  background-color: #990099;
-}
-
 a {
   color: #ff9900;
   padding: 15px;
@@ -42,7 +38,26 @@ a {
   display: flex;
 }
 
-a:hover {
+button, .message-input input[type=submit], .signup input[type=submit] {
+  color: #ff9900;
+  padding: 7px 7px;
+  text-decoration: none;
+  justify-content: center;
+  background: none;
+  border: none;
+  font-size: 14px;
+}
+
+input[type=text] {
+  background: #990099;
+  border: none;
+  border-left: 1px solid orange;
+  border-right: 1px solid orange;
+  padding: 10px;
+  color: skyblue;
+}
+
+a:hover, button:hover, input[type=submit]:hover {
   color: skyblue;
   background-color: #990099;
 }
