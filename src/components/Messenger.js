@@ -11,7 +11,7 @@ class Messenger extends React.Component {
 
   render(){
     const {users} = this.props
-    const messagedUser = users[this.props.match.params.id-1]
+    const messagedUser = users.filter(user => user.id == this.props.match.params.id)[0]
     return(
       <div className='messenger'>
          <h3>Messages to: {messagedUser && messagedUser.name}</h3>
