@@ -30,6 +30,14 @@ body {
   font-family: "Palatino Linotype", "Book Antiqua", serif;
 }
 
+.login-signup a {
+  color: #ff9900;
+  padding: 10px 0px;
+  text-decoration: none;
+  justify-content: center;
+  display: inline;
+}
+
 a {
   color: #ff9900;
   padding: 15px;
@@ -38,7 +46,7 @@ a {
   display: flex;
 }
 
-button, .message-input input[type=submit], .signup input[type=submit] {
+button, .message-input input[type=submit], .signup input[type=submit], .login input[type=submit] {
   color: #ff9900;
   padding: 7px 7px;
   text-decoration: none;
@@ -48,7 +56,7 @@ button, .message-input input[type=submit], .signup input[type=submit] {
   font-size: 14px;
 }
 
-input[type=text] {
+input[type=text], input[type=password], input[type=number], select, textarea {
   background: #990099;
   border: none;
   border-left: 1px solid orange;
@@ -68,8 +76,5 @@ a.active {
 
 /*
   dark purple: #990099
-  dark pink: #cc0066
-  dark orange: #e62e00
-  orange: #ff751a
   yellow orange: #ff9900
 */
