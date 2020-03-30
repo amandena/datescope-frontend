@@ -12,6 +12,7 @@ class User extends React.Component {
       <div className='user'>
         <h2>{user ? user.name : null} - {user ? user.age : null} - {user ? user.sign : null}</h2>
         <p>{user ? user.bio : null}</p>
+        <p>Instagram: {user ? user.instagram : null}</p>
         <Link to={`/users/${currentUser.id}/messenger/${user && user.id}`}>Send Message</Link>
       </div>
     )

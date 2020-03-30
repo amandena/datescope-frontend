@@ -9,6 +9,7 @@ const Home = ({currentUser}) => {
       <div>
         <h2>{currentUser.name} - {currentUser.age} - {currentUser.sign}</h2>
         <p>{currentUser.bio}</p>
+        <p>Instagram: {currentUser.instagram}</p>
         <Link to={`/users/${currentUser.id}/edit`}>Edit Profile</Link>
       </div>
   } else {
