@@ -17,7 +17,7 @@ const Signup = ({signupFormData, updateSignupForm, history, handleSubmit, editMo
     <div className='signup'>
       <form onSubmit={(event) => {
           event.preventDefault()
-          handleSubmit(signupFormData)
+          handleSubmit(signupFormData, history)
         }
       }>
         <label>Email: </label>
@@ -51,7 +51,7 @@ const Signup = ({signupFormData, updateSignupForm, history, handleSubmit, editMo
         </select><br/>
 
         <label>Bio: </label>
-        <input type='text' placeholder='Bio' value={signupFormData.bio} name='bio' onChange={handleChange} /><br/>
+        <textarea type='text' placeholder='Bio' value={signupFormData.bio} name='bio' onChange={handleChange} /><br/>
 
         <label>Gender: </label>
         <select value={signupFormData.gender} name='gender' onChange={handleChange}>
