@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-const Home = () => {
+const LoginSignup = () => {
   return (
     <div className='login-signup'>
       <h3>Welcome, please <Link to='/login'>Log In</Link>.</h3>
@@ -10,4 +10,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default LoginSignup
