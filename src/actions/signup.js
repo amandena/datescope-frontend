@@ -17,7 +17,7 @@ export const signup = (credentials, history) => {
         if (user.error) {
           alert(user.error)
         } else {
-          dispatch({type: 'SET_CURRENT_USER', user: user})
+          dispatch({type: 'GET_CURRENT_USER', user: user})
           dispatch({type: 'RESET_SIGNUP_FORM'})
           history.push('/')
         }
