@@ -6,11 +6,11 @@ const Users = ({users, currentUser}) => {
 
   return(
     <div className='users'>
-      {users.map((user) =>
+      {users ? users.map((user) =>
         <div key={user.id}>
           <Link to={`/users/${currentUser.id}/matches/${user.id}`}>{user.name}</Link>
         </div>
-      )}
+      ) : null}
     </div>
   )
 }
